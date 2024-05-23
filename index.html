@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homepage</title>
+  <style>
+    
+	body {
+	  background-image: url('motobg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; 
+	  margin: 0;
+      padding: 0;
+      height: 120vh;
+	}
+    .transparent-links {
+      display: flex;
+      align-items: center;
+	  background-color: #151515;
+	  height: 60px;
+    }
+
+    .transparent-link {
+      text-decoration: none;
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+	  margin-top: 0px;
+      margin-right: 60px;
+	  font-family: 'Karla', serif;
+      font-weight: bold;
+      color: #F1F1F1;
+      position: relative;
+	  text-shadow: 1px 2px 2px black;
+    }
+
+    .transparent-links a:first-child {
+      margin-left: 20px; 
+    }
+
+    .transparent-link:hover {
+      color: #A91D3A;
+    }
+
+    .transparent-link:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: red;
+    }
+	
+	.text-box-container {
+      margin: 150px auto;
+	  margin-top: 150px;
+      margin-left: 500px;
+	  
+    }
+
+    .text-content {
+      width: 1500px;
+      height: 550px;
+      background-color: rgba(12, 12, 12, 0.5); 
+      border-radius: 10px;
+	  border-bottom: 3px solid #A91D3A;
+      padding: 5px;
+      color: #000;
+      line-height: 0.3;
+      font-family: 'Playfair Display', serif;
+    }
+	
+	.p1 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+	  font-weight: bold;
+	  text-align: center;
+	  text-shadow: 4px 4px 4px #4F200D;
+	  font-size: 150px;
+    }
+	
+	.p2 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+	  font-weight: bold;
+	  text-align: center;
+	  text-shadow: 4px 4px 4px #4F200D;
+	  font-size: 95px;
+	  margin-top: -40px;
+    }
+	
+	.shop-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-right: 20px;
+        }
+
+        #shopButton {
+            border: none;
+            background-color: #4F200D;
+            color: white;
+            padding: 10px 20px;
+			font-family: 'Karla', serif;
+			font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #shopButton:hover {
+            background-color: #45a049;
+        }
+	
+  </style>
+</head>
+<body>
+
+<nav class="transparent-links">
+      <img src="motologo.png" alt="Logo" style="height:200px; margin-top: 0px; margin-left: 400px; margin-right:680px;">
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\index.html" target="_self">Home</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\products.html" target="_self">Products</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\faqs.html" target="_self">FAQ's</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\about us.html" target="_self">About Us</a>
+</nav>
+
+<div class= "text-box-container">
+<div class = "text-content">
+<p class = "p1"> YAE MOTOSHOP </p>
+<p class = "p2"> Your Trusted Provider </p>
+<div class="shop-container">
+            <button id="shopButton" type="button">SHOP NOW</button>
+        </div>
+</div>
+</div>
+</body>
+
+<script>
+document.getElementById("shopButton").addEventListener("click", function() {
+  window.location.href = "D:/Downloads/2nd Year - BSIT/WDP Finals Project/products.html";
+});
+</script>
+</html>

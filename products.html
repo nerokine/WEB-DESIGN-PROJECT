@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Page</title>
+<style>
+
+    body {
+    background-image: url('motobg.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    margin: 0;
+    padding: 0;
+	}
+
+    .transparent-links {
+      display: flex;
+      align-items: center;
+      background-color: #151515;
+      height: 60px;
+    }
+
+    .transparent-link {
+      text-decoration: none;
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      margin-top: 0px;
+      margin-right: 60px;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      color: #F1F1F1;
+      position: relative;
+      text-shadow: 1px 2px 2px black;
+    }
+
+    .transparent-links a:first-child {
+      margin-left: 20px; 
+    }
+
+    .transparent-link:hover {
+      color: #A91D3A;
+    }
+
+    .transparent-link:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: red;
+    }
+    
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 20px;
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    .product-category {
+        grid-column: span 4;
+        margin-bottom: 10px;
+    }
+
+    .product {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(12, 12, 12, 0.5); 
+    border-radius: 10px;
+	border-bottom: 3px solid #A91D3A;
+    padding: 20px;
+    }
+
+    .product img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin-top: 10px;
+        border-radius: 10px;
+    }
+
+    #cart {
+        background: transparent;
+		width: 550px;
+        padding: 20px;
+        border-bottom: 3px solid #A91D3A;
+		border-radius: 20px;
+        margin-top: 20px;
+		margin-left: 950px;
+		margin-bottom: 20px;
+		background-color: rgba(12, 12, 12, 0.5);
+    }
+
+
+    #checkout-btn {
+        display: block;
+        width: 25%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+		font-size: 20px; 
+		background-color: #FBF9F1; 
+		color: #4F200D; 
+		font-family: 'Karla', serif; 
+		text-align: center;
+		margin-left: 210px;
+    }
+    
+    .p1 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 4px 4px 4px #4F200D;
+      font-size: 50px;
+      margin-bottom: 0px; 
+    }
+    
+    .p2 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 4px 4px 4px #4F200D;
+      font-size: 25px;
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+    .p3 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 4px 4px 4px #4F200D;
+      font-size: 17px;
+      margin-top: 5px;
+    }
+	
+	.p4 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 4px 4px 4px #4F200D;
+      font-size: 35px;
+      margin-top: 5px;
+
+    }
+	
+	.p5 {
+      color: #FFFBF5;
+      font-family: 'Karla', serif;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 1px #4F200D;
+      font-size: 20px;
+      margin-top: 2px;
+    }
+    
+    .add-to-cart {
+    background-color: #FBF9F1;
+    color: #4F200D;
+    font-family: 'Karla', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+    }
+
+    .add-to-cart:hover {
+    background-color: #6E371B;
+    }
+	
+	#cart-items li {
+   color: #FFFBF5;
+   font-family: 'Karla', serif;
+   font-weight: bold;
+   text-align: left;
+   text-shadow: 1px 1px 1px #4F200D;
+   font-size: 20px;
+   margin-top: 2px;
+   }
+   
+   #checkout-form {
+    background: transparent;
+    width: 550px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+	background-color: rgba(12, 12, 12, 0.5);
+	 border-bottom: 3px solid #A91D3A;
+	}
+
+	.checkout-text {
+    color: black;
+    font-family: 'Karla', serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 2px;
+	margin-right: 10px;
+	margin-left: 12px;
+	padding: 5px;
+	}
+	
+	#payment-mode {
+	display: block;
+    margin: 10px auto; 
+    padding: 10px;
+    background-color: #78A083;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+	}
+	
+	#submit-order {
+    display: block;
+    margin: 10px auto; 
+    padding: 10px;
+    background-color: #503C3C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+	}
+	
+	#card-number {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #FBF9F1;
+    color: #4F200D;
+    font-family: 'Karla', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    width: 100%; 
+    max-width: 300px; 
+	}
+</style>
+</head>
+<body>
+
+<nav class="transparent-links">
+     <img src="motologo.png" alt="Logo" style="height:200px; margin-top: 0px; margin-left: 400px; margin-right:680px;">
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\index.html" target="_self">Home</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\products.html" target="_self">Products</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\faqs.html" target="_self">FAQ's</a>
+      <a class="transparent-link" href="D:\Downloads\2nd Year - BSIT\WDP Finals Project\about us.html" target="_self">About Us</a>
+</nav>
+
+<div class="container">
+    <div class="product-category">
+        <p class = "p1"> TIRES </p>
+    </div>
+    <div class="product">
+        <img src="tire1.png" alt="Product 1">
+        <p class = "p2"> Michelin Road 6 GT Tires </p>
+        <p class = "p3"> ₱13,931.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Michelin Road 6 GT Tires', 13931)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="tire2.png" alt="Product 2">
+        <p class = "p2"> Pirelli Diablo Rosso IV Corsa Tires </p>
+        <p class = "p3"> ₱9,786.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Pirelli Diablo Rosso IV Corsa Tires', 9786)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="tire4.png" alt="Product 4">
+        <p class = "p2"> Michelin Power 6 Tires </p>
+        <p class = "p3"> ₱10,246.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Michelin Power 6 Tires', 10246)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="tire3.png" alt="Product 3">
+        <p class = "p2"> Michelin Anakee Road Tires </p>
+        <p class = "p3"> ₱12,894.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Michelin Anakee Road Tires', 12894)">Add to Cart</button>
+    </div>
+
+    <div class="product-category">
+        <p class = "p1"> AIR & FUEL </p>
+    </div>
+    <div class="product">
+        <img src="af1.png" alt="Product 5">
+        <p class = "p2"> K&N Air Filter </p>
+        <p class = "p3"> ₱2,705.00 </p>
+        <button class="add-to-cart" onclick="addToCart('K&N Air Filter', 2705)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="af2.png" alt="Product 1">
+        <p class = "p2"> BMC Air Filter </p>
+        <p class = "p3"> ₱3,569.00 </p>
+        <button class="add-to-cart" onclick="addToCart('BMC Air Filter', 3569)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="af3.png" alt="Product 1">
+        <p class = "p2"> DNA Air Filter </p>
+        <p class = "p3"> ₱2,820.00 </p>
+        <button class="add-to-cart" onclick="addToCart('DNA Air Filter', 2820)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="af4.png" alt="Product 1">
+        <p class = "p2"> Trask Assault Air Fulter </p>
+        <p class = "p3"> ₱4,202.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Trask Assault Air Fulter', 4202)">Add to Cart</button>
+    </div>
+	<div class="product-category">
+        <p class = "p1"> MIRRORS </p>
+    </div>
+    <div class="product">
+        <img src="m1.png" alt="Product 6">
+        <p class = "p2"> Arlen Ness Mini Stocker Billet Mirror </p>
+        <p class = "p3"> ₱4,605.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Arlen Ness Mini Stocker Billet Mirror', 4605)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="m2.png" alt="Product 7">
+        <p class = "p2"> CRG Hindsight Lanesplitter Bar End Mirror </p>
+        <p class = "p3"> ₱4,547.00 </p>
+        <button class="add-to-cart" onclick="addToCart('CRG Hindsight Lanesplitter Bar End Mirror', 4547)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="m3.png" alt="Product 1">
+        <p class = "p2"> Rizoma Reverse Retro Bar End Mirror </p>
+        <p class = "p3"> ₱5,699.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Rizoma Reverse Retro Bar End Mirror', 5699)">Add to Cart</button>
+    </div>
+	 <div class="product">
+        <img src="m4.png" alt="Product 8">
+        <p class = "p2"> Bikemaster Sickle Mirror </p>
+        <p class = "p3"> ₱7,483.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Bikemaster Sickle Mirror', 7483)">Add to Cart</button>
+    </div>
+	<div class="product-category">
+        <p class = "p1"> Oil Filter </p>
+    </div>
+    <div class="product">
+        <img src="oil1.png" alt="Product 9">
+        <p class = "p2"> MotoPro Oil Filter </p>
+        <p class = "p3"> ₱345.00 </p>
+        <button class="add-to-cart" onclick="addToCart('MotoPro Oil Filter', 345)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="oil2.png" alt="Product 10">
+        <p class = "p2"> S&S Cycle Oil Filter for Harley </p>
+        <p class = "p3"> ₱1,093.00 </p>
+        <button class="add-to-cart" onclick="addToCart('S&S Cycle Oil Filter for Harley', 1093)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="oil3.png" alt="Product 11">
+        <p class = "p2"> Kawasaki Oil Filter </p>
+        <p class = "p3"> ₱460.00 </p>
+        <button class="add-to-cart" onclick="addToCart('Kawasaki Oil Filter', 460)">Add to Cart</button>
+    </div>
+    <div class="product">
+        <img src="oil4.png" alt="Product 12">
+        <p class = "p2"> HiFloFiltro Premium Oil Filters </p>
+        <p class = "p3"> ₱172.00 </p>
+        <button class="add-to-cart" onclick="addToCart('HiFloFiltro Premium Oil Filters', 172)">Add to Cart</button>
+    </div>
+
+</div>
+
+<div id="cart">
+    <p class = "p4"> Cart Items </p>
+    <ul id="cart-items">
+    </ul>
+    <p class = "p5"> Total: ₱<span id="cart-total">0.00</span></p>
+   <button id="checkout-btn" onclick="checkout()" class="checkout-text">Checkout</button>
+
+</div>
+
+<div id="checkout-form" style="display: none;">
+    <input type="text" id="name" placeholder="Name" class="checkout-text">
+    <input type="text" id="address" placeholder="Address" class="checkout-text">
+    <select id="payment-mode" class="checkout-text">
+    <option value="cash" class="checkout-text">Cash on Delivery</option>
+    <option value="credit" class="checkout-text">Credit Card</option>
+	</select>
+	<input type="text" id="card-number" placeholder="Credit Card Number" class="checkout-text" style="display: none;">
+    <button id="submit-order" onclick="submitOrder()" class="checkout-text">Submit Order</button>
+</div>
+
+
+
+<script>
+    let cartItems = [];
+    let cartTotal = 0;
+
+    function addToCart(productName, price) {
+        cartItems.push({ name: productName, price: price });
+        cartTotal += price;
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartList = document.getElementById('cart-items');
+        const totalElement = document.getElementById('cart-total');
+        cartList.innerHTML = '';
+        cartItems.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.name} ₱${item.price.toFixed(2)}`;
+            cartList.appendChild(li);
+        });
+        totalElement.textContent = cartTotal.toFixed(2);
+    }
+
+    function checkout() {
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.style.display = 'block';
+    }
+
+    function submitOrder() {
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const paymentMode = document.getElementById('payment-mode').value;
+        let cardNumber = '';
+        if (paymentMode === 'credit') {
+            cardNumber = document.getElementById('card-number').value;
+        }
+        console.log('Name:', name);
+        console.log('Address:', address);
+        console.log('Payment Mode:', paymentMode);
+        console.log('Card Number:', cardNumber);
+
+        
+        cartItems = [];
+        cartTotal = 0;
+        updateCart();
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.style.display = 'none';
+        alert('Order submitted successfully!');
+    }
+
+    document.getElementById('payment-mode').addEventListener('change', function () {
+        const cardInput = document.getElementById('card-number');
+        if (this.value === 'credit') {
+            cardInput.style.display = 'block';
+        } else {
+            cardInput.style.display = 'none';
+        }
+    });
+</script>
+
+
+</body>
+</html>
